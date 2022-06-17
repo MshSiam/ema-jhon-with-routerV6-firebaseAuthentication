@@ -15,3 +15,9 @@
   margin-right: 5px;
   margin-left: 50px;
 }
+
+.btn-regular {
+  text-decoration: none;
+  padding: 5px;
+  color: black;
+}
