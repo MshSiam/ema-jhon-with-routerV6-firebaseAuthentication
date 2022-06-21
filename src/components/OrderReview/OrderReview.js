@@ -21,9 +21,8 @@ const OrderReview = () => {
   }
 
   const handleOrder = () => {
-    nevigate("/placeOrder")
+    nevigate("/shipping")
     // setCart([])
-    clearTheCart()
   }
 
   return (
@@ -42,7 +41,7 @@ const OrderReview = () => {
           Place Order
         </Link> */}
         <button onClick={handleOrder} className="btn-regular">
-          Place Order
+          Procced to Shipping
         </button>
       </div>
     </div>

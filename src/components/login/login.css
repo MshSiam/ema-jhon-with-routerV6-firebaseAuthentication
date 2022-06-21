@@ -1,0 +1,51 @@
+.loginDiv {
+  background-color: rgb(245, 238, 238);
+  text-align: center;
+  width: 50%;
+  margin: 70px auto;
+  padding: 20px;
+}
+
+.loginDiv input {
+  margin-top: 10px;
+  display: block;
+  width: 45%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.submit-btn {
+  background-color: rgb(240, 220, 133);
+  color: rgb(12, 16, 20);
+  border: none;
+  cursor: pointer;
+}
+
+.signInDiv {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.signInDiv p {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.btn1,
+.btn2 {
+  margin-top: -40px;
+  width: 120px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 3px;
+}

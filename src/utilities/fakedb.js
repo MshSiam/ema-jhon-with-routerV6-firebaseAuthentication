@@ -1,4 +1,6 @@
-// use local storage as your db for now
+// user wants to add a product.
+//  find the place to store data.
+// we will use local storage for now.
 const addToDb = (id) => {
   const exists = getDb()
   let shopping_cart = {}

@@ -1,0 +1,27 @@
+.shipping-form {
+  width: 50%;
+  margin: auto;
+  background-color: rgb(214, 211, 172);
+  padding: 30px;
+  margin-top: 50px;
+  border-radius: 20px;
+}
+
+.shipping-form h1 {
+  text-align: center;
+  color: rgb(37, 36, 34);
+}
+
+.shipping-form input {
+  display: block;
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  padding: 5px;
+}
+
+.shipping-form .error {
+  color: red;
+  margin-top: 20px;
+  margin-left: 100px;
+}
