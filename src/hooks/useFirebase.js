@@ -16,6 +16,7 @@ const useFirebase = () => {
   // ------- states ---------//
   const [user, setUser] = useState({})
   const [error, setError] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
 
   //   ----- auth & providers ---------//
   const auth = getAuth()
@@ -25,21 +26,31 @@ const useFirebase = () => {
 
   // -------  google sign in ------- //
   const signInUsingGoogle = () => {
-    return signInWithPopup(auth, googleProvider)
+    setIsLoading(true)
+    return signInWithPopup(auth, googleProvider).finally(() => {
+      setIsLoading(false)
+    })
   }
 
   // ------ Github Sign In ----------//
   const signInUsingGithub = () => {
-    return signInWithPopup(auth, githubProvider)
+    setIsLoading(true)
+    return signInWithPopup(auth, githubProvider).finally(() =>
+      setIsLoading(false)
+    )
   }
 
   // -------- FaceBook SignIn ------//
   const signInusingFacebook = () => {
-    return signInWithPopup(auth, facebookProvider)
+    setIsLoading(true)
+    return signInWithPopup(auth, facebookProvider).finally(() => {
+      setIsLoading(false)
+    })
   }
 
   //   ----------- signOut------//
   const logOut = () => {
+    setIsLoading(true)
     signOut(auth)
       .then(() => {
         console.log("signed Out")
@@ -49,6 +60,9 @@ const useFirebase = () => {
       .catch((error) => {
         setError(error.message)
       })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
 
   //-------checking the user------- //
@@ -57,7 +71,10 @@ const useFirebase = () => {
       if (user) {
         console.log("inside State Change", user)
         setUser(user)
+      } else {
+        setUser({})
       }
+      setIsLoading(false)
     })
   }, [])
 
@@ -69,7 +86,8 @@ const useFirebase = () => {
     user,
     setUser,
     error,
-    setError
+    setError,
+    isLoading
   }
 }
 
