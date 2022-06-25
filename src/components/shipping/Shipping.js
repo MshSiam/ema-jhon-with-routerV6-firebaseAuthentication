@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import useAuth from "../../hooks/useAuth"
 import "./shipping.css"
+import { getStoredCart } from "../../utilities/fakedb"
 
 const Shipping = () => {
   const { user } = useAuth()
@@ -12,7 +13,23 @@ const Shipping = () => {
     handleSubmit,
     formState: { errors }
   } = useForm()
-  const onSubmit = (data) => console.log(data)
+
+  const onSubmit = (data) => {
+    const savedCart = getStoredCart()
+    data.order = savedCart
+    // console.log(data)
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result)
+      })
+  }
   console.log("example") // watch input value by passing the name of it
 
   //   handle onclick
